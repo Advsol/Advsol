@@ -6,7 +6,6 @@ import { DataContract  } from './models/data-contract';
 import { ITypedPagedResult  } from './models/paging';
 
 export abstract class CommonService {
-  public anything = "hi";
 
     constructor(private _http: HttpClient) {
     }
