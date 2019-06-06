@@ -1,4 +1,5 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { ExecuteRequestBase } from './models/execute-request-base';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
@@ -68,5 +69,17 @@ export abstract class CommonService {
         const contract = new dataCtor();
         return this._http.put(
             `api/${DataContract.GetApiUrl(contract)}/${id}`,payload).pipe(map(x => x as T));
+    }
+    
+    public execute<T extends DataContract, K extends ExecuteRequestBase>(contract: T, payload: K): Observable<any> {
+        return this._http.post(
+        `api/${DataContract.GetApiUrl(contract)}/_execute`, payload).pipe(map(x => x as K)
+        );
+    }
+
+    public delete<T extends DataContract>(dataCtor: { new(): T }, id: string): Observable<any> {
+        const contract = new dataCtor();
+        return this._http.delete(
+            `api/${DataContract.GetApiUrl(contract)}/${id}`, { observe: 'response' });
     }
 }
