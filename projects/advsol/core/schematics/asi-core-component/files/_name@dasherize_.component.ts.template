@@ -1,0 +1,13 @@
+import { Component } from '@angular/core';
+import { AsiCoreService } from '@advsol/core'
+
+@Component({
+  selector: '<%= daserize(name) %>',
+  template: `<p><%= daserize(name) %> works!</p>`,
+  styles: [
+  ]
+})
+export class <%= classify(name) %>Component {
+
+    constructor(private AsiCoreService: AsiCoreService) {}
+}

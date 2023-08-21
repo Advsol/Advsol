@@ -15,7 +15,7 @@ export abstract class CommonService {
         const contract = new dataCtor();
         // have to instantiate to get access to instance var $type
         // TODO - add paging, allow func to be passed in for custom mapping
-        return this._http.get(
+        return this._http.get<ITypedPagedResult<T>>(
             `api/${DataContract.GetApiUrl(contract)}`,
             { params: params })
             .pipe(
@@ -32,7 +32,7 @@ export abstract class CommonService {
     /**
      * Description of what this does
      *
-     * param {string} resource The datacontract name minus the 'data' suffix
+     * param {string} resource The data contract name minus the 'data' suffix
      * param {UrlParams} params ? params
      * param {Function} map per result object mapping operation
      * example
@@ -40,7 +40,7 @@ export abstract class CommonService {
      */
     public find<T extends DataContract>(dataCtor: { new (): T }, params?: HttpParams, customMap?: ((item: T) => T)): Observable<T[]> {
         const contract = new dataCtor();
-        return this._http.get(
+        return this._http.get<ITypedPagedResult<T>>(
                 `api/${DataContract.GetApiUrl(contract)}`,
                 { params: params })
             .pipe(

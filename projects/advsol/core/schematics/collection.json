@@ -1,0 +1,16 @@
+{
+    "$schema": "../../../../node_modules/@angular-devkit/schematics/collection-schema.json",
+    "schematics": {
+        "ng-add":{
+            "description": "Add core library to the project",
+            "factory": "./ng-add/index#ngAdd"
+        },
+        "advsol-core-component":{
+            "description": "This schematic generates @advsol/core component",
+            "factory": "./asi-core-component/index#AsiCoreComponentGenerator",
+            "schema": "./asi-core-component/schema.json",
+            "aliases": ["@advsol/core"]
+
+        }
+    }
+}

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Location } from '@angular/common';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor,HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs'
 
 import { AppConstantService } from './app-constants.service';
 
 @Injectable()
 export class AuthorizationInterceptor implements HttpInterceptor {
+   
     private webApiBaseUrl: string;
     private headers: { [name: string]: string | string[]; } ;
 
@@ -26,3 +27,4 @@ export class AuthorizationInterceptor implements HttpInterceptor {
         return next.handle(request);
     }
 }
+

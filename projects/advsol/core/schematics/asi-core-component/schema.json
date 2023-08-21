@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/schema",
+    "$id": "asi-core-component",
+    "title": "Asi Core Library Component Schema",
+    "properties": {
+        "name": {
+            "description": "The name of the component",
+            "type": "string"
+        },
+        "path": {
+            "description": "Where the file will be created",
+            "type": "string",
+            "format": "path",
+            "x-prompt": "Where should the file be created?",
+            "default": "src/app"
+        }
+    },
+    "required": []
+}
