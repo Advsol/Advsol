@@ -1,9 +1,6 @@
 {
   "name": "@advsol/core",
-  "version": "0.0.14",
-  "publishConfig": {
-    "registry": "http://localhost:4873/"
-  },
+  "version": "0.0.15",
   "peerDependencies": {
     "@angular/common": "^16.1.0",
     "@angular/core": "^16.1.0"
